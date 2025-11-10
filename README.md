@@ -32,6 +32,49 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+## Google Analytics
+
+This project includes Google Analytics tracking using `@next/third-parties/google`. Page views are automatically tracked, and you can track custom events throughout your application.
+
+### Tracking Custom Events
+
+Use the `trackEvent` function to track custom user interactions:
+
+```tsx
+'use client';
+import { trackEvent } from '@/lib/analytics';
+
+function MyButton() {
+  const handleClick = () => {
+    trackEvent('button_click', {
+      button_name: 'subscribe',
+      location: 'header',
+    });
+    // Your button logic here
+  };
+
+  return <button onClick={handleClick}>Subscribe</button>;
+}
+```
+
+### Tracking Link Clicks
+
+Use the `TrackedLink` component for automatic link click tracking:
+
+```tsx
+import { TrackedLink } from '@/components/TrackedLink';
+
+<TrackedLink 
+  href="/about"
+  eventName="navigation_click"
+  eventParams={{ link_text: "About", location: "header" }}
+>
+  About Us
+</TrackedLink>
+```
+
+See `lib/analytics.ts` for all available tracking functions.
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
