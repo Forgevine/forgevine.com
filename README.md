@@ -2,6 +2,18 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
+### Environment Variables
+
+Create a `.env.local` file in the root directory with the following variables:
+
+```bash
+NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX
+```
+
+Replace `G-XXXXXXXXXX` with your Google Analytics 4 Measurement ID. You can find this in your [Google Analytics dashboard](https://analytics.google.com/).
+
+### Running the Development Server
+
 First, run the development server:
 
 ```bash
