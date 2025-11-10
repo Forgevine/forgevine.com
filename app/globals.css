@@ -76,6 +76,446 @@ body {
   }
 }
 
+@keyframes grid-shift {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(4rem, 4rem);
+  }
+}
+
+@keyframes orb-float {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.2;
+  }
+  33% {
+    transform: translate(30px, -30px) scale(1.1);
+    opacity: 0.25;
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.95);
+    opacity: 0.15;
+  }
+}
+
+@keyframes orb-float-delayed {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.15;
+  }
+  33% {
+    transform: translate(-25px, 25px) scale(1.05);
+    opacity: 0.2;
+  }
+  66% {
+    transform: translate(35px, -20px) scale(0.98);
+    opacity: 0.12;
+  }
+}
+
+@keyframes orb-pulse {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.1;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.15);
+    opacity: 0.15;
+  }
+}
+
+@keyframes orb-drift {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.08;
+  }
+  25% {
+    transform: translate(40px, -20px) scale(1.08);
+    opacity: 0.12;
+  }
+  50% {
+    transform: translate(-30px, 30px) scale(0.92);
+    opacity: 0.1;
+  }
+  75% {
+    transform: translate(20px, -40px) scale(1.05);
+    opacity: 0.11;
+  }
+}
+
+@keyframes orb-drift-delayed {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.12;
+  }
+  25% {
+    transform: translate(-35px, 25px) scale(1.1);
+    opacity: 0.15;
+  }
+  50% {
+    transform: translate(25px, -35px) scale(0.9);
+    opacity: 0.1;
+  }
+  75% {
+    transform: translate(-20px, 40px) scale(1.03);
+    opacity: 0.13;
+  }
+}
+
+@keyframes particle-float {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.2;
+  }
+  25% {
+    transform: translate(10px, -15px) scale(1.2);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translate(-8px, -25px) scale(0.8);
+    opacity: 0.15;
+  }
+  75% {
+    transform: translate(12px, -10px) scale(1.1);
+    opacity: 0.25;
+  }
+}
+
+@keyframes path-draw {
+  0% {
+    stroke-dasharray: 0, 1000;
+    opacity: 0;
+  }
+  50% {
+    stroke-dasharray: 500, 1000;
+    opacity: 0.02;
+  }
+  100% {
+    stroke-dasharray: 1000, 1000;
+    opacity: 0.02;
+  }
+}
+
+@keyframes path-draw-delayed {
+  0% {
+    stroke-dasharray: 0, 1500;
+    opacity: 0;
+  }
+  50% {
+    stroke-dasharray: 750, 1500;
+    opacity: 0.02;
+  }
+  100% {
+    stroke-dasharray: 1500, 1500;
+    opacity: 0.02;
+  }
+}
+
+@keyframes hex-shift {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(100px, 86.6px);
+  }
+}
+
+@keyframes hex-pulse {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+@keyframes blockchain-block {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+    opacity: 0.3;
+    border-color: rgba(62, 139, 130, 0.3);
+  }
+  25% {
+    transform: translate(20px, -15px) rotate(5deg) scale(1.05);
+    opacity: 0.5;
+    border-color: rgba(95, 168, 157, 0.5);
+  }
+  50% {
+    transform: translate(-15px, 20px) rotate(-5deg) scale(0.95);
+    opacity: 0.4;
+    border-color: rgba(62, 139, 130, 0.4);
+  }
+  75% {
+    transform: translate(15px, 10px) rotate(3deg) scale(1.02);
+    opacity: 0.45;
+    border-color: rgba(127, 197, 184, 0.45);
+  }
+}
+
+@keyframes network-pulse {
+  0%, 100% {
+    stroke-opacity: 0.2;
+    stroke-width: 1;
+  }
+  50% {
+    stroke-opacity: 0.6;
+    stroke-width: 1.5;
+  }
+}
+
+@keyframes node-pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.3);
+    opacity: 1;
+  }
+}
+
+@keyframes data-flow {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translate(20%, 20%) scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(20%, 20%) scale(0.8);
+    opacity: 0.3;
+  }
+}
+
+@keyframes data-flow-path1 {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translate(20%, 20%) scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(20%, 20%) scale(0.8);
+    opacity: 0.3;
+  }
+}
+
+@keyframes data-flow-path2 {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translate(30%, -15%) scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(30%, -15%) scale(0.8);
+    opacity: 0.3;
+  }
+}
+
+@keyframes data-flow-path3 {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translate(20%, 20%) scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(20%, 20%) scale(0.8);
+    opacity: 0.3;
+  }
+}
+
+@keyframes data-flow-path4 {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translate(30%, 10%) scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(30%, 10%) scale(0.8);
+    opacity: 0.3;
+  }
+}
+
+@keyframes data-flow-path5 {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translate(25%, 15%) scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(25%, 15%) scale(0.8);
+    opacity: 0.3;
+  }
+}
+
+@keyframes orb-float-intense {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.25;
+  }
+  25% {
+    transform: translate(50px, -40px) scale(1.15);
+    opacity: 0.35;
+  }
+  50% {
+    transform: translate(-30px, 50px) scale(0.9);
+    opacity: 0.2;
+  }
+  75% {
+    transform: translate(40px, -30px) scale(1.1);
+    opacity: 0.3;
+  }
+}
+
+@keyframes orb-float-intense-delayed {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.2;
+  }
+  25% {
+    transform: translate(-45px, 40px) scale(1.12);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translate(35px, -45px) scale(0.88);
+    opacity: 0.18;
+  }
+  75% {
+    transform: translate(-30px, 35px) scale(1.08);
+    opacity: 0.25;
+  }
+}
+
+@keyframes orb-pulse-intense {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.15;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.25);
+    opacity: 0.25;
+  }
+}
+
+@keyframes orb-drift-intense {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.12;
+  }
+  20% {
+    transform: translate(60px, -30px) scale(1.15);
+    opacity: 0.18;
+  }
+  40% {
+    transform: translate(-40px, 50px) scale(0.85);
+    opacity: 0.1;
+  }
+  60% {
+    transform: translate(50px, -50px) scale(1.1);
+    opacity: 0.16;
+  }
+  80% {
+    transform: translate(-30px, 40px) scale(0.95);
+    opacity: 0.14;
+  }
+}
+
+@keyframes orb-drift-intense-delayed {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.18;
+  }
+  20% {
+    transform: translate(-50px, 35px) scale(1.18);
+    opacity: 0.25;
+  }
+  40% {
+    transform: translate(40px, -50px) scale(0.82);
+    opacity: 0.12;
+  }
+  60% {
+    transform: translate(-45px, 45px) scale(1.12);
+    opacity: 0.22;
+  }
+  80% {
+    transform: translate(35px, -40px) scale(0.92);
+    opacity: 0.16;
+  }
+}
+
+@keyframes hash-scroll {
+  0% {
+    transform: translateY(0);
+    opacity: 0.03;
+  }
+  50% {
+    transform: translateY(-100vh);
+    opacity: 0.05;
+  }
+  100% {
+    transform: translateY(-200vh);
+    opacity: 0;
+  }
+}
+
+@keyframes chain-link {
+  0%, 100% {
+    stroke-opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    stroke-opacity: 0.6;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes chain-shift {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(120px, 0);
+  }
+}
+
+@keyframes typing-text {
+  0% {
+    mask-image: linear-gradient(to right, black 0%, transparent 0%);
+    -webkit-mask-image: linear-gradient(to right, black 0%, transparent 0%);
+  }
+  100% {
+    mask-image: linear-gradient(to right, black 100%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, black 100%, transparent 100%);
+  }
+}
+
+@keyframes blink-caret {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
+
 .animate-gradient {
   background-size: 200% 200%;
   animation: gradient-shift 3s ease infinite;
@@ -95,6 +535,139 @@ body {
 
 .animate-float {
   animation: float 6s ease-in-out infinite;
+}
+
+.animate-grid-shift {
+  animation: grid-shift 20s linear infinite;
+}
+
+.animate-orb-float {
+  animation: orb-float 20s ease-in-out infinite;
+}
+
+.animate-orb-float-delayed {
+  animation: orb-float-delayed 25s ease-in-out infinite;
+  animation-delay: 2s;
+}
+
+.animate-orb-pulse {
+  animation: orb-pulse 8s ease-in-out infinite;
+}
+
+.animate-orb-drift {
+  animation: orb-drift 30s ease-in-out infinite;
+}
+
+.animate-orb-drift-delayed {
+  animation: orb-drift-delayed 35s ease-in-out infinite;
+  animation-delay: 3s;
+}
+
+.animate-particle-float {
+  animation: particle-float 8s ease-in-out infinite;
+}
+
+.animate-path-draw {
+  animation: path-draw 6s ease-in-out infinite;
+}
+
+.animate-path-draw-delayed {
+  animation: path-draw-delayed 8s ease-in-out infinite;
+  animation-delay: 2s;
+}
+
+.animate-hex-shift {
+  animation: hex-shift 15s linear infinite;
+}
+
+.animate-hex-pulse {
+  animation: hex-pulse 3s ease-in-out infinite;
+}
+
+.animate-blockchain-block {
+  animation: blockchain-block 8s ease-in-out infinite;
+}
+
+.animate-network-pulse {
+  animation: network-pulse 2s ease-in-out infinite;
+}
+
+.animate-node-pulse {
+  animation: node-pulse 2s ease-in-out infinite;
+}
+
+.animate-data-flow {
+  animation: data-flow 3s ease-in-out infinite;
+}
+
+.animate-data-flow-path1 {
+  animation: data-flow-path1 3s ease-in-out infinite;
+}
+
+.animate-data-flow-path2 {
+  animation: data-flow-path2 3s ease-in-out infinite;
+}
+
+.animate-data-flow-path3 {
+  animation: data-flow-path3 3s ease-in-out infinite;
+}
+
+.animate-data-flow-path4 {
+  animation: data-flow-path4 3s ease-in-out infinite;
+}
+
+.animate-data-flow-path5 {
+  animation: data-flow-path5 3s ease-in-out infinite;
+}
+
+.animate-orb-float-intense {
+  animation: orb-float-intense 15s ease-in-out infinite;
+}
+
+.animate-orb-float-intense-delayed {
+  animation: orb-float-intense-delayed 18s ease-in-out infinite;
+  animation-delay: 2s;
+}
+
+.animate-orb-pulse-intense {
+  animation: orb-pulse-intense 6s ease-in-out infinite;
+}
+
+.animate-orb-drift-intense {
+  animation: orb-drift-intense 25s ease-in-out infinite;
+}
+
+.animate-orb-drift-intense-delayed {
+  animation: orb-drift-intense-delayed 30s ease-in-out infinite;
+  animation-delay: 3s;
+}
+
+.animate-hash-scroll {
+  animation: hash-scroll 15s linear infinite;
+}
+
+.animate-chain-link {
+  animation: chain-link 2s ease-in-out infinite;
+}
+
+.animate-chain-shift {
+  animation: chain-shift 10s linear infinite;
+}
+
+.animate-typing-text {
+  display: inline-block;
+  white-space: pre-wrap;
+  vertical-align: top;
+  animation: typing-text var(--typing-duration, 3s) steps(var(--typing-steps, 50), end) var(--typing-delay, 0s) infinite;
+  mask-image: linear-gradient(to right, black 0%, transparent 0%);
+  -webkit-mask-image: linear-gradient(to right, black 0%, transparent 0%);
+}
+
+.animate-blink-caret {
+  animation: blink-caret 1s step-end infinite;
+  color: #5FA89D;
+  opacity: 1;
+  display: inline-block;
 }
 
 .delay-1000 {
