@@ -7,6 +7,7 @@ const navLinks = [
   { href: '#services', label: 'Services' },
   { href: '#how-we-work', label: 'How we work' },
   { href: '#status', label: 'In progress' },
+  { href: '#contact', label: 'Contact' },
 ];
 
 export function SiteHeader() {

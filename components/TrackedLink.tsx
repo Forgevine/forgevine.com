@@ -44,10 +44,15 @@ export function TrackedLink({
     });
   };
 
-  // Check if it's an external link
-  const isExternal = href.startsWith('http://') || href.startsWith('https://') || href.startsWith('//');
+  // External links and in-page anchors use a native anchor so the browser
+  // performs the navigation (Next's Link does not scroll to hash targets).
+  const isExternal =
+    href.startsWith('http://') ||
+    href.startsWith('https://') ||
+    href.startsWith('//');
+  const isHash = href.startsWith('#');
 
-  if (isExternal) {
+  if (isExternal || isHash) {
     return (
       <a 
         href={href} 
