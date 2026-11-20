@@ -1,8 +1,10 @@
 'use client';
 
 import { TrackedLink } from '@/components/TrackedLink';
+import { SiteHeader } from '@/components/SiteHeader';
 import { ServicesSection } from '@/components/ServicesSection';
 import { AboutSection } from '@/components/AboutSection';
+import { WorkInProgressSection } from '@/components/WorkInProgressSection';
 import { ContactForm } from '@/components/ContactForm';
 import { trackEvent } from '@/lib/analytics';
 
@@ -16,12 +18,14 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 relative">
+    <div className="relative min-h-screen bg-slate-950">
+      <SiteHeader />
+
       {/* Blockchain-themed animated background */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
+      <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
         {/* Hexagonal grid pattern */}
         <div className="absolute inset-0 opacity-[0.04]">
-          <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+          <svg className="h-full w-full" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <pattern id="hexagons" x="0" y="0" width="100" height="86.6" patternUnits="userSpaceOnUse">
                 <polygon points="50,0 93.3,25 93.3,75 50,100 6.7,75 6.7,25" fill="none" stroke="#3E8B82" strokeWidth="0.5" className="animate-hex-pulse" />
@@ -32,7 +36,7 @@ export default function Home() {
         </div>
 
         {/* Network nodes with connections */}
-        <svg className="absolute inset-0 w-full h-full opacity-[0.15]" xmlns="http://www.w3.org/2000/svg">
+        <svg className="absolute inset-0 h-full w-full opacity-[0.15]" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <linearGradient id="nodeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stopColor="#3E8B82">
@@ -49,7 +53,7 @@ export default function Home() {
               <stop offset="100%" stopColor="#3E8B82" stopOpacity="0" />
             </radialGradient>
           </defs>
-          
+
           {/* Network connections */}
           <line x1="10%" y1="20%" x2="30%" y2="40%" stroke="url(#nodeGradient)" strokeWidth="1" className="animate-network-pulse" />
           <line x1="30%" y1="40%" x2="60%" y2="25%" stroke="url(#nodeGradient)" strokeWidth="1" className="animate-network-pulse" style={{ animationDelay: '0.5s' }} />
@@ -58,7 +62,7 @@ export default function Home() {
           <line x1="50%" y1="70%" x2="75%" y2="85%" stroke="url(#nodeGradient)" strokeWidth="1" className="animate-network-pulse" style={{ animationDelay: '2s' }} />
           <line x1="15%" y1="80%" x2="40%" y2="50%" stroke="url(#nodeGradient)" strokeWidth="1" className="animate-network-pulse" style={{ animationDelay: '0.8s' }} />
           <line x1="70%" y1="15%" x2="90%" y2="60%" stroke="url(#nodeGradient)" strokeWidth="1" className="animate-network-pulse" style={{ animationDelay: '1.2s' }} />
-          
+
           {/* Network nodes */}
           {[
             { x: '10%', y: '20%' },
@@ -97,7 +101,7 @@ export default function Home() {
             return (
               <div
                 key={`particle-${i}`}
-                className={`absolute w-2 h-2 bg-[#5FA89D] rounded-full ${path.className}`}
+                className={`absolute h-2 w-2 rounded-full bg-[#5FA89D] ${path.className}`}
                 style={{
                   left: `${path.startX}%`,
                   top: `${path.startY}%`,
@@ -111,11 +115,11 @@ export default function Home() {
         </div>
 
         {/* Animated gradient orbs - more intense */}
-        <div className="absolute -top-40 -right-40 w-96 h-96 bg-[#3E8B82]/25 rounded-full blur-3xl animate-orb-float-intense"></div>
-        <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-[#3E8B82]/20 rounded-full blur-3xl animate-orb-float-intense-delayed"></div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[#5FA89D]/15 rounded-full blur-3xl animate-orb-pulse-intense"></div>
-        <div className="absolute top-1/4 right-1/4 w-80 h-80 bg-[#7FC5B8]/12 rounded-full blur-3xl animate-orb-drift-intense"></div>
-        <div className="absolute bottom-1/4 left-1/3 w-96 h-96 bg-[#3E8B82]/18 rounded-full blur-3xl animate-orb-drift-intense-delayed"></div>
+        <div className="absolute -right-40 -top-40 h-96 w-96 animate-orb-float-intense rounded-full bg-[#3E8B82]/25 blur-3xl"></div>
+        <div className="absolute -bottom-40 -left-40 h-96 w-96 animate-orb-float-intense-delayed rounded-full bg-[#3E8B82]/20 blur-3xl"></div>
+        <div className="absolute left-1/2 top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 animate-orb-pulse-intense rounded-full bg-[#5FA89D]/15 blur-3xl"></div>
+        <div className="absolute right-1/4 top-1/4 h-80 w-80 animate-orb-drift-intense rounded-full bg-[#7FC5B8]/12 blur-3xl"></div>
+        <div className="absolute bottom-1/4 left-1/3 h-96 w-96 animate-orb-drift-intense-delayed rounded-full bg-[#3E8B82]/18 blur-3xl"></div>
 
         {/* Cryptographic hash-like patterns */}
         <div className="absolute inset-0 opacity-[0.03]">
@@ -131,7 +135,7 @@ export default function Home() {
           ].map((hash, i) => (
             <div
               key={`hash-${i}`}
-              className="absolute font-mono text-[#3E8B82] text-xs animate-hash-scroll"
+              className="absolute animate-hash-scroll font-mono text-xs text-[#3E8B82]"
               style={{
                 left: `${(i * 12.5)}%`,
                 top: `${(i * 15) % 100}%`,
@@ -147,7 +151,7 @@ export default function Home() {
 
         {/* Chain link pattern */}
         <div className="absolute inset-0 opacity-[0.05]">
-          <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+          <svg className="h-full w-full" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <pattern id="chainLinks" x="0" y="0" width="120" height="60" patternUnits="userSpaceOnUse">
                 <circle cx="30" cy="30" r="8" fill="none" stroke="#3E8B82" strokeWidth="1" className="animate-chain-link" />
@@ -161,44 +165,79 @@ export default function Home() {
       </div>
 
       {/* Hero Section */}
-      <section className="relative z-10 flex min-h-screen flex-col items-center justify-center px-4 py-16">
-        <main className="relative z-10 flex w-full max-w-5xl flex-col items-center justify-center gap-12 text-center animate-fade-in">
+      <section className="relative z-10 flex min-h-screen flex-col items-center justify-center px-4 pb-16 pt-28">
+        <main className="relative z-10 flex w-full max-w-4xl animate-fade-in flex-col items-center justify-center gap-8 text-center">
+          {/* Status pill */}
+          <div className="inline-flex animate-fade-in-up items-center gap-2 rounded-full border border-[#3E8B82]/40 bg-[#3E8B82]/10 px-3 py-1.5 font-mono text-[11px] uppercase tracking-[0.18em] text-[#7FC5B8]">
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#5FA89D] opacity-75"></span>
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-[#5FA89D]"></span>
+            </span>
+            <span className="sm:hidden">Work in progress</span>
+            <span className="hidden sm:inline">
+              Work in progress — 3 engagements in flight
+            </span>
+          </div>
+
           {/* Logo/Brand */}
-          <div className="flex flex-col items-center gap-4 animate-fade-in-up">
-            <TrackedLink 
+          <div className="flex animate-fade-in-up flex-col items-center gap-3">
+            <TrackedLink
               href="/"
               eventName="logo_click"
               eventParams={{ location: 'homepage', element: 'logo' }}
               className="block"
             >
-              <h1 className="text-6xl md:text-8xl font-bold bg-gradient-to-r from-[#5FA89D] via-[#3E8B82] to-[#7FC5B8] bg-clip-text text-transparent cursor-pointer hover:opacity-80 transition-opacity">
+              <h1 className="cursor-pointer bg-gradient-to-r from-[#5FA89D] via-[#3E8B82] to-[#7FC5B8] bg-clip-text text-6xl font-bold text-transparent transition-opacity hover:opacity-80 md:text-8xl">
                 Forgevine
               </h1>
             </TrackedLink>
             <div className="h-1 w-24 bg-gradient-to-r from-transparent via-[#3E8B82] to-transparent"></div>
           </div>
 
-          {/* Slogan */}
-          <p className="text-2xl md:text-3xl font-light text-slate-200 tracking-wide animate-fade-in-up delay-300">
-            Forging the future of Web3
+          {/* Positioning */}
+          <p className="animate-fade-in-up text-2xl font-light tracking-wide text-slate-200 delay-300 md:text-3xl">
+            A Web3 dev shop that works in the shadow.
           </p>
 
-          {/* CTA Button */}
-          <div className="animate-fade-in-up delay-700">
+          <p className="max-w-2xl animate-fade-in-up text-base text-slate-400 delay-300 md:text-lg">
+            We embed with small teams, build the product, harden it, and hand it
+            over. Most of what we ship never gets a public page — and we like it
+            that way.
+          </p>
+
+          {/* CTAs */}
+          <div className="flex animate-fade-in-up flex-col items-center gap-3 delay-700 sm:flex-row">
             <button
               onClick={handleCTAClick}
-              className="px-8 py-4 rounded-lg bg-gradient-to-r from-[#3E8B82] to-[#5FA89D] text-white font-semibold text-lg hover:from-[#5FA89D] hover:to-[#7FC5B8] transition-all duration-300 shadow-lg shadow-[#3E8B82]/20 hover:shadow-[#3E8B82]/40 hover:-translate-y-1"
+              className="rounded-lg bg-gradient-to-r from-[#3E8B82] to-[#5FA89D] px-8 py-4 text-lg font-semibold text-white shadow-lg shadow-[#3E8B82]/20 transition-all duration-300 hover:-translate-y-1 hover:from-[#5FA89D] hover:to-[#7FC5B8] hover:shadow-[#3E8B82]/40"
             >
-              Get Started
+              Start a project
             </button>
+            <TrackedLink
+              href="#status"
+              eventName="hero_secondary_click"
+              eventParams={{ location: 'hero', destination: 'status' }}
+              className="rounded-lg border border-slate-700/80 px-6 py-4 text-sm font-medium text-slate-300 transition-colors hover:border-[#3E8B82]/60 hover:text-white"
+            >
+              See what&apos;s in progress →
+            </TrackedLink>
           </div>
 
+          {/* Trust line */}
+          <ul className="flex animate-fade-in flex-wrap items-center justify-center gap-x-6 gap-y-2 font-mono text-[11px] uppercase tracking-[0.18em] text-slate-500 delay-1000">
+            <li>NDA-first</li>
+            <li aria-hidden="true" className="text-slate-700">·</li>
+            <li>Seniors only</li>
+            <li aria-hidden="true" className="text-slate-700">·</li>
+            <li>No public portfolio</li>
+          </ul>
+
           {/* Decorative vine pattern */}
-          <div className="mt-8 flex items-center gap-2 opacity-60 animate-fade-in delay-1000">
+          <div className="flex animate-fade-in items-center gap-2 opacity-60 delay-1000">
             <div className="h-px w-12 bg-gradient-to-r from-transparent to-[#3E8B82]"></div>
-            <div className="w-2 h-2 rounded-full bg-[#3E8B82]"></div>
+            <div className="h-2 w-2 rounded-full bg-[#3E8B82]"></div>
             <div className="h-px w-24 bg-gradient-to-r from-[#3E8B82] via-[#5FA89D] to-[#3E8B82]"></div>
-            <div className="w-2 h-2 rounded-full bg-[#5FA89D]"></div>
+            <div className="h-2 w-2 rounded-full bg-[#5FA89D]"></div>
             <div className="h-px w-12 bg-gradient-to-l from-transparent to-[#3E8B82]"></div>
           </div>
         </main>
@@ -207,50 +246,58 @@ export default function Home() {
       {/* Services Section */}
       <ServicesSection />
 
-      {/* About Section */}
+      {/* Work in the shadow */}
       <AboutSection />
+
+      {/* Work in progress */}
+      <WorkInProgressSection />
 
       {/* Contact Section */}
       <ContactForm />
 
       {/* Footer */}
-      <footer className="relative z-10 py-12 px-4 border-t border-slate-800/50">
-        <div className="max-w-6xl mx-auto">
-          <div className="flex flex-col items-center gap-4 text-sm text-slate-400">
-            <TrackedLink 
-              href="https://forgevine.com"
-              eventName="footer_link_click"
-              eventParams={{ link_type: 'domain', location: 'footer' }}
-              className="hover:text-slate-300 transition-colors"
-            >
-              forgevine.com
-            </TrackedLink>
-            <div className="flex gap-6 text-slate-500">
-              <TrackedLink 
+      <footer className="relative z-10 border-t border-slate-800/50 px-4 py-12">
+        <div className="mx-auto max-w-6xl">
+          <div className="flex flex-col items-center justify-between gap-6 md:flex-row md:items-end">
+            <div className="text-center md:text-left">
+              <TrackedLink
+                href="https://forgevine.com"
+                eventName="footer_link_click"
+                eventParams={{ link_type: 'domain', location: 'footer' }}
+                className="text-sm text-slate-400 transition-colors hover:text-slate-300"
+              >
+                forgevine.com
+              </TrackedLink>
+              <p className="mt-2 font-mono text-xs text-slate-500">
+                No public projects. By design.
+              </p>
+            </div>
+            <div className="flex items-center gap-6 text-sm text-slate-500">
+              <TrackedLink
                 href="https://github.com/Forgevine"
                 eventName="social_link_click"
                 eventParams={{ platform: 'github', location: 'footer' }}
-                className="hover:text-slate-300 transition-colors"
+                className="transition-colors hover:text-slate-300"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 GitHub
               </TrackedLink>
-              <TrackedLink 
+              <TrackedLink
                 href="https://twitter.com/forgevine"
                 eventName="social_link_click"
                 eventParams={{ platform: 'twitter', location: 'footer' }}
-                className="hover:text-slate-300 transition-colors"
+                className="transition-colors hover:text-slate-300"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 Twitter
               </TrackedLink>
             </div>
-            <p className="text-xs text-slate-600 mt-4">
-              © {new Date().getFullYear()} Forgevine. All rights reserved.
-            </p>
           </div>
+          <p className="mt-8 text-center font-mono text-xs text-slate-600 md:text-left">
+            © {new Date().getFullYear()} Forgevine. All rights reserved.
+          </p>
         </div>
       </footer>
     </div>

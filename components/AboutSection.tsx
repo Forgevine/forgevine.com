@@ -1,86 +1,89 @@
 'use client';
 
+const disclosures = [
+  { label: 'Public case studies', value: 'None', note: 'by design' },
+  { label: 'Client names', value: 'Under NDA', note: '' },
+  { label: 'References', value: 'On request', note: 'privately' },
+  { label: 'Work in progress', value: 'Redacted', note: 'see status' },
+];
+
 export function AboutSection() {
   return (
-    <section id="about" className="relative py-24 px-4">
-      <div className="max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+    <section id="how-we-work" className="relative px-4 py-24">
+      <div className="mx-auto max-w-6xl">
+        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
           {/* Left side - Content */}
           <div className="space-y-6">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-[#5FA89D] via-[#3E8B82] to-[#7FC5B8] bg-clip-text text-transparent">
-              Why ForgeVine?
+            <p className="font-mono text-xs uppercase tracking-[0.25em] text-[#5FA89D]">
+              Work in the shadow
+            </p>
+            <h2 className="bg-gradient-to-r from-[#5FA89D] via-[#3E8B82] to-[#7FC5B8] bg-clip-text text-4xl font-bold text-transparent md:text-5xl">
+              Quiet by default.
             </h2>
-            <div className="space-y-4 text-lg text-slate-300 leading-relaxed">
+            <div className="space-y-4 text-lg leading-relaxed text-slate-300">
               <p>
-                At ForgeVine, we forge the critical infrastructure for the decentralized future. 
-                Like a vine, our projects are interconnected, sharing strength and resources to 
-                grow in new directions.
+                We don&apos;t chase logos or turn clients into case studies. The work
+                is the marketing.
               </p>
               <p>
-                We are dedicated to creating foundational Web3 technologies, weaving individual 
-                projects into a powerful, unified network. Each solution we build strengthens 
-                the entire ecosystem.
+                Forgevine plugs into your team as a quiet extension of it —
+                white-label delivery, NDA from the first call, and no public
+                footprint until you decide to launch. You take the credit for what
+                ships. We take the edge cases, the maintenance, and the pager.
               </p>
-              <p className="text-[#5FA89D] font-medium">
-                Our expertise spans the full spectrum of Web3 development, from smart contract 
-                architecture to user-facing dApps, ensuring your project is built on solid foundations.
+              <p className="font-medium text-[#5FA89D]">
+                When the work is ready for the light, it&apos;s yours to announce.
+                Until then, we stay in the background.
               </p>
             </div>
+            <p className="font-mono text-sm text-slate-500">
+              That is why there is no portfolio on this page. There is nothing
+              we are allowed to show.
+            </p>
           </div>
 
-          {/* Right side - Visual elements */}
+          {/* Right side - Disclosure ledger */}
           <div className="relative">
-            <div className="relative p-8 rounded-2xl bg-slate-900/50 backdrop-blur-sm border border-slate-800/50">
-              {/* Animated vine pattern */}
-              <div className="space-y-6">
-                <div className="flex items-center gap-3">
-                  <div className="w-3 h-3 rounded-full bg-[#3E8B82] animate-pulse"></div>
-                  <div className="flex-1 h-px bg-gradient-to-r from-[#3E8B82] to-transparent"></div>
-                  <div className="text-sm text-slate-400 font-mono">Infrastructure</div>
-                </div>
-                <div className="flex items-center gap-3 ml-4">
-                  <div className="w-3 h-3 rounded-full bg-[#5FA89D] animate-pulse delay-300"></div>
-                  <div className="flex-1 h-px bg-gradient-to-r from-[#5FA89D] to-transparent"></div>
-                  <div className="text-sm text-slate-400 font-mono">Smart Contracts</div>
-                </div>
-                <div className="flex items-center gap-3 ml-8">
-                  <div className="w-3 h-3 rounded-full bg-[#7FC5B8] animate-pulse delay-700"></div>
-                  <div className="flex-1 h-px bg-gradient-to-r from-[#7FC5B8] to-transparent"></div>
-                  <div className="text-sm text-slate-400 font-mono">dApps</div>
-                </div>
-                <div className="flex items-center gap-3 ml-12">
-                  <div className="w-3 h-3 rounded-full bg-[#3E8B82] animate-pulse delay-1000"></div>
-                  <div className="flex-1 h-px bg-gradient-to-r from-[#3E8B82] to-transparent"></div>
-                  <div className="text-sm text-slate-400 font-mono">Consulting</div>
-                </div>
+            <div className="relative rounded-2xl border border-slate-800/60 bg-slate-900/50 p-8 backdrop-blur-sm">
+              <div className="flex items-center justify-between border-b border-slate-800/60 pb-4">
+                <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-slate-500">
+                  Disclosure ledger
+                </span>
+                <span className="font-mono text-[11px] text-[#5FA89D]">
+                  forgevine.com
+                </span>
               </div>
 
-              {/* Connecting lines */}
-              <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ zIndex: 0 }}>
-                <path
-                  d="M 24 40 Q 40 60, 56 80 Q 72 100, 88 120 Q 104 140, 120 160"
-                  stroke="url(#vineGradient)"
-                  strokeWidth="1"
-                  fill="none"
-                  opacity="0.3"
-                />
-                <defs>
-                  <linearGradient id="vineGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#3E8B82" stopOpacity="0.5" />
-                    <stop offset="50%" stopColor="#5FA89D" stopOpacity="0.5" />
-                    <stop offset="100%" stopColor="#7FC5B8" stopOpacity="0.5" />
-                  </linearGradient>
-                </defs>
-              </svg>
+              <ul className="divide-y divide-slate-800/60">
+                {disclosures.map((item) => (
+                  <li
+                    key={item.label}
+                    className="flex items-center justify-between gap-4 py-4"
+                  >
+                    <span className="text-sm text-slate-400">{item.label}</span>
+                    <span className="flex items-baseline gap-2 font-mono text-sm text-slate-200">
+                      {item.value}
+                      {item.note && (
+                        <span className="text-[11px] text-slate-500">
+                          {item.note}
+                        </span>
+                      )}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+
+              <p className="mt-6 rounded-lg border border-[#3E8B82]/30 bg-[#3E8B82]/10 p-4 text-sm text-[#7FC5B8]">
+                Want references? We share them privately under NDA — not on a page.
+              </p>
             </div>
 
             {/* Floating accent elements */}
-            <div className="absolute -top-4 -right-4 w-24 h-24 bg-[#3E8B82]/10 rounded-full blur-2xl"></div>
-            <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-[#5FA89D]/10 rounded-full blur-2xl"></div>
+            <div className="absolute -right-4 -top-4 h-24 w-24 rounded-full bg-[#3E8B82]/10 blur-2xl" />
+            <div className="absolute -bottom-4 -left-4 h-32 w-32 rounded-full bg-[#5FA89D]/10 blur-2xl" />
           </div>
         </div>
       </div>
     </section>
   );
 }
-

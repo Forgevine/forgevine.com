@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Forgevine">
+  <defs>
+    <linearGradient id="forgevine" x1="14" y1="16" x2="50" y2="50" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#7FC5B8" />
+      <stop offset="0.55" stop-color="#5FA89D" />
+      <stop offset="1" stop-color="#3E8B82" />
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="#070B0F" />
+  <path
+    d="M17 18.5 L32 47 L47 18.5"
+    fill="none"
+    stroke="url(#forgevine)"
+    stroke-width="7"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  <circle cx="17" cy="18.5" r="4" fill="#7FC5B8" />
+  <circle cx="47" cy="18.5" r="4" fill="#5FA89D" />
+  <circle cx="32" cy="47" r="4" fill="#3E8B82" />
+</svg>

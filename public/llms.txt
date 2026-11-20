@@ -1,0 +1,19 @@
+# Forgevine
+
+> Forgevine is a Web3 dev shop that works in the shadow. We build smart contracts, dApps, and blockchain infrastructure for small teams under NDA, and we do not list client projects publicly.
+
+## Services
+
+- Smart contract development: https://forgevine.com/#services
+- dApp development: https://forgevine.com/#services
+- Web3 consulting: https://forgevine.com/#services
+- Blockchain infrastructure: https://forgevine.com/#services
+
+## How we work
+
+- Work in the shadow, NDA-first delivery: https://forgevine.com/#how-we-work
+- Redacted view of current engagements: https://forgevine.com/#status
+
+## Contact
+
+- Start a quiet conversation: https://forgevine.com/#contact
