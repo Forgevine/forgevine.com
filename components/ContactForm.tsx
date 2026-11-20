@@ -84,11 +84,14 @@ export function ContactForm() {
     <section id="contact" className="relative py-24 px-4">
       <div className="max-w-2xl mx-auto">
         <div className="text-center mb-12">
+          <p className="mb-3 font-mono text-xs uppercase tracking-[0.25em] text-[#5FA89D]">
+            Contact
+          </p>
           <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-[#5FA89D] via-[#3E8B82] to-[#7FC5B8] bg-clip-text text-transparent">
-            Get In Touch
+            Start a quiet conversation
           </h2>
           <p className="text-lg text-slate-300">
-            Let's discuss your Web3 project
+            Tell us what you are building. NDA-friendly, no deck required.
           </p>
         </div>
 
@@ -99,7 +102,8 @@ export function ContactForm() {
           {/* Success message */}
           {submitStatus === 'success' && (
             <div className="p-4 rounded-lg bg-[#3E8B82]/20 border border-[#3E8B82]/50 text-[#5FA89D]">
-              Thank you! Your message has been sent. We'll get back to you soon.
+              Thank you. Your message is in. We will get back to you within two
+              business days.
             </div>
           )}
 
@@ -176,7 +180,7 @@ export function ContactForm() {
               id="message"
               rows={6}
               className="w-full px-4 py-3 rounded-lg bg-slate-800/50 border border-slate-700 text-slate-100 placeholder-slate-500 focus:outline-none focus:border-[#3E8B82] focus:ring-1 focus:ring-[#3E8B82] transition-colors resize-none"
-              placeholder="Tell us about your project..."
+              placeholder="Tell us what you are building — rough is fine..."
             />
             {errors.message && (
               <p className="mt-1 text-sm text-red-400">{errors.message.message}</p>
@@ -191,6 +195,10 @@ export function ContactForm() {
           >
             {isSubmitting ? 'Sending...' : 'Send Message'}
           </button>
+
+          <p className="text-center font-mono text-xs text-slate-500">
+            Under NDA by default. Nothing you send is published.
+          </p>
         </form>
       </div>
     </section>

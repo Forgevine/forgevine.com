@@ -1,81 +1,78 @@
-'use client';
-
-import { useState } from 'react';
-
 interface Service {
   title: string;
   description: string;
-  icon: string;
 }
 
 const services: Service[] = [
   {
     title: 'Smart Contract Development',
-    description: 'Secure, audited smart contracts built with best practices for DeFi, NFTs, DAOs, and more.',
-    icon: '📜',
+    description:
+      'Contracts written to be read, reviewed, and handed over. DeFi, NFTs, DAOs, and the unpleasant edge cases in between.',
   },
   {
     title: 'dApp Development',
-    description: 'Full-stack decentralized applications with intuitive UX and seamless Web3 integration.',
-    icon: '🌐',
+    description:
+      'Full-stack decentralized apps with interfaces people can use without a tutorial. Wired end to end and shipped quietly.',
   },
   {
     title: 'Web3 Consulting',
-    description: 'Strategic guidance on blockchain architecture, tokenomics, and decentralized system design.',
-    icon: '💡',
+    description:
+      'Architecture, tokenomics, and protocol design reviewed by people who have shipped it. Straight answers, no theatre.',
   },
   {
     title: 'Blockchain Infrastructure',
-    description: 'Robust infrastructure solutions including nodes, APIs, and custom blockchain tools.',
-    icon: '⚙️',
+    description:
+      'Nodes, indexers, APIs, and tooling that stay up. Built to be run by your team after we leave.',
   },
 ];
 
 export function ServicesSection() {
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-
   return (
-    <section id="services" className="relative py-24 px-4">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-[#5FA89D] via-[#3E8B82] to-[#7FC5B8] bg-clip-text text-transparent">
-            Our Services
+    <section id="services" className="relative px-4 py-24">
+      <div className="mx-auto max-w-6xl">
+        <div className="mb-14 max-w-2xl">
+          <p className="mb-3 font-mono text-xs uppercase tracking-[0.25em] text-[#5FA89D]">
+            Services
+          </p>
+          <h2 className="mb-4 bg-gradient-to-r from-[#5FA89D] via-[#3E8B82] to-[#7FC5B8] bg-clip-text text-4xl font-bold text-transparent md:text-5xl">
+            What we do
           </h2>
-          <p className="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto">
-            Comprehensive Web3 solutions tailored to your needs
+          <p className="text-lg text-slate-300">
+            A narrow surface, done properly. If it is not on this list, we will
+            tell you who to talk to instead.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
           {services.map((service, index) => (
-            <div
-              key={index}
-              onMouseEnter={() => setHoveredIndex(index)}
-              onMouseLeave={() => setHoveredIndex(null)}
-              className="group relative p-6 rounded-2xl bg-slate-900/50 backdrop-blur-sm border border-slate-800/50 hover:border-[#3E8B82]/50 transition-all duration-300 hover:shadow-lg hover:shadow-[#3E8B82]/10 hover:-translate-y-1"
+            <article
+              key={service.title}
+              className="group relative rounded-2xl border border-slate-800/50 bg-slate-900/50 p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#3E8B82]/50 hover:shadow-lg hover:shadow-[#3E8B82]/10"
             >
               {/* Gradient overlay on hover */}
-              <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br from-[#3E8B82]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
-              
+              <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#3E8B82]/10 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+
               <div className="relative z-10">
-                <div className="text-4xl mb-4 transform group-hover:scale-110 transition-transform duration-300">
-                  {service.icon}
+                <div className="flex items-center justify-between">
+                  <span className="font-mono text-xs text-[#3E8B82]">
+                    /{String(index + 1).padStart(2, '0')}
+                  </span>
+                  <span className="h-px w-8 bg-slate-700 transition-colors duration-300 group-hover:bg-[#3E8B82]"></span>
                 </div>
-                <h3 className="text-xl font-semibold mb-3 text-slate-100 group-hover:text-[#5FA89D] transition-colors">
+                <h3 className="mb-3 mt-6 text-xl font-semibold text-slate-100 transition-colors group-hover:text-[#5FA89D]">
                   {service.title}
                 </h3>
-                <p className="text-slate-400 leading-relaxed">
+                <p className="leading-relaxed text-slate-400">
                   {service.description}
                 </p>
               </div>
 
               {/* Decorative corner accent */}
-              <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-br from-[#3E8B82]/20 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            </div>
+              <div className="absolute right-0 top-0 h-16 w-16 rounded-bl-full bg-gradient-to-br from-[#3E8B82]/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+            </article>
           ))}
         </div>
       </div>
     </section>
   );
 }
-

@@ -15,13 +15,23 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Forgevine - Forging the future of Web3",
-  description: "At Forgevine, we forge the critical infrastructure for the decentralized future. Like a vine, our projects are interconnected, sharing strength and resources to grow in new directions.",
-  keywords: ["Web3", "blockchain", "decentralized", "infrastructure", "Forgevine"],
+  title: "Forgevine - A Web3 dev shop that works in the shadow",
+  description:
+    "Forgevine is a quiet Web3 development shop. We build smart contracts, dApps, and infrastructure for small teams under NDA, and keep our clients' work private.",
+  keywords: [
+    "Web3",
+    "blockchain",
+    "dev shop",
+    "smart contracts",
+    "dApp development",
+    "infrastructure",
+    "Forgevine",
+  ],
   authors: [{ name: "Forgevine" }],
   openGraph: {
-    title: "Forgevine - Forging the future of Web3",
-    description: "At Forgevine, we forge the critical infrastructure for the decentralized future.",
+    title: "Forgevine - A Web3 dev shop that works in the shadow",
+    description:
+      "We build smart contracts, dApps, and infrastructure under NDA. No public portfolio, by design.",
     url: "https://forgevine.com",
     siteName: "Forgevine",
     locale: "en_US",
@@ -29,8 +39,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Forgevine - Forging the future of Web3",
-    description: "At Forgevine, we forge the critical infrastructure for the decentralized future.",
+    title: "Forgevine - A Web3 dev shop that works in the shadow",
+    description:
+      "We build smart contracts, dApps, and infrastructure under NDA. No public portfolio, by design.",
   },
 };
 
