@@ -46,7 +46,7 @@ export function ContactForm() {
 
       setSubmitStatus('success');
       reset();
-      
+
       trackEvent('contact_form_success', {
         project_type: data.projectType,
       });
@@ -58,7 +58,7 @@ export function ContactForm() {
     } catch (error) {
       console.error('Error submitting form:', error);
       setSubmitStatus('error');
-      
+
       trackEvent('contact_form_error', {
         error: error instanceof Error ? error.message : 'Unknown error',
       });
@@ -68,13 +68,13 @@ export function ContactForm() {
   };
 
   return (
-    <section id="contact" className="relative py-24 px-4">
-      <div className="max-w-2xl mx-auto">
-        <div className="text-center mb-12">
+    <section id="contact" className="relative px-4 py-24">
+      <div className="mx-auto max-w-6xl">
+        <div className="mb-14 max-w-2xl">
           <p className="mb-3 font-mono text-xs uppercase tracking-[0.25em] text-[#5FA89D]">
             Contact
           </p>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-[#5FA89D] via-[#3E8B82] to-[#7FC5B8] bg-clip-text text-transparent">
+          <h2 className="mb-4 bg-gradient-to-r from-[#5FA89D] via-[#3E8B82] to-[#7FC5B8] bg-clip-text text-4xl font-bold text-transparent md:text-5xl">
             Start a quiet conversation
           </h2>
           <p className="text-lg text-slate-300">
@@ -84,7 +84,7 @@ export function ContactForm() {
 
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="relative p-8 rounded-2xl bg-slate-900/50 backdrop-blur-sm border border-slate-800/50 space-y-6"
+          className="relative space-y-6 rounded-2xl border border-slate-800/50 bg-slate-900/50 p-8 backdrop-blur-sm"
         >
           {/* Success message */}
           {submitStatus === 'success' && (
@@ -101,94 +101,101 @@ export function ContactForm() {
             </div>
           )}
 
-          {/* Name field */}
-          <div>
-            <label htmlFor="name" className="block text-sm font-medium text-slate-300 mb-2">
-              Name *
-            </label>
-            <input
-              {...register('name')}
-              type="text"
-              id="name"
-              className="w-full px-4 py-3 rounded-lg bg-slate-800/50 border border-slate-700 text-slate-100 placeholder-slate-500 focus:outline-none focus:border-[#3E8B82] focus:ring-1 focus:ring-[#3E8B82] transition-colors"
-              placeholder="Your name"
-            />
-            {errors.name && (
-              <p className="mt-1 text-sm text-red-400">{errors.name.message}</p>
-            )}
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-5">
+            {/* Left column — contact details */}
+            <div className="space-y-6 md:col-span-2">
+              {/* Name field */}
+              <div>
+                <label htmlFor="name" className="block text-sm font-medium text-slate-300 mb-2">
+                  Name *
+                </label>
+                <input
+                  {...register('name')}
+                  type="text"
+                  id="name"
+                  className="w-full px-4 py-3 rounded-lg bg-slate-800/50 border border-slate-700 text-slate-100 placeholder-slate-500 focus:outline-none focus:border-[#3E8B82] focus:ring-1 focus:ring-[#3E8B82] transition-colors"
+                  placeholder="Your name"
+                />
+                {errors.name && (
+                  <p className="mt-1 text-sm text-red-400">{errors.name.message}</p>
+                )}
+              </div>
+
+              {/* Email field */}
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium text-slate-300 mb-2">
+                  Email *
+                </label>
+                <input
+                  {...register('email')}
+                  type="email"
+                  id="email"
+                  className="w-full px-4 py-3 rounded-lg bg-slate-800/50 border border-slate-700 text-slate-100 placeholder-slate-500 focus:outline-none focus:border-[#3E8B82] focus:ring-1 focus:ring-[#3E8B82] transition-colors"
+                  placeholder="your.email@example.com"
+                />
+                {errors.email && (
+                  <p className="mt-1 text-sm text-red-400">{errors.email.message}</p>
+                )}
+              </div>
+
+              {/* Project type field */}
+              <div>
+                <label htmlFor="projectType" className="block text-sm font-medium text-slate-300 mb-2">
+                  Project Type *
+                </label>
+                <select
+                  {...register('projectType')}
+                  id="projectType"
+                  className="w-full px-4 py-3 rounded-lg bg-slate-800/50 border border-slate-700 text-slate-100 focus:outline-none focus:border-[#3E8B82] focus:ring-1 focus:ring-[#3E8B82] transition-colors"
+                >
+                  <option value="">Select a project type</option>
+                  {projectTypes.map((type) => (
+                    <option key={type} value={type}>
+                      {type}
+                    </option>
+                  ))}
+                </select>
+                {errors.projectType && (
+                  <p className="mt-1 text-sm text-red-400">{errors.projectType.message}</p>
+                )}
+              </div>
+            </div>
+
+            {/* Right column — message and submit */}
+            <div className="flex flex-col gap-6 md:col-span-3">
+              {/* Message field */}
+              <div className="flex flex-1 flex-col">
+                <label htmlFor="message" className="block text-sm font-medium text-slate-300 mb-2">
+                  Message *
+                </label>
+                <textarea
+                  {...register('message')}
+                  id="message"
+                  rows={6}
+                  className="w-full min-h-[180px] flex-1 px-4 py-3 rounded-lg bg-slate-800/50 border border-slate-700 text-slate-100 placeholder-slate-500 focus:outline-none focus:border-[#3E8B82] focus:ring-1 focus:ring-[#3E8B82] transition-colors resize-none"
+                  placeholder="Tell us what you are building — rough is fine..."
+                />
+                {errors.message && (
+                  <p className="mt-1 text-sm text-red-400">{errors.message.message}</p>
+                )}
+              </div>
+
+              {/* Submit button */}
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="w-full py-3 px-6 rounded-lg bg-gradient-to-r from-[#3E8B82] to-[#5FA89D] text-white font-semibold hover:from-[#5FA89D] hover:to-[#7FC5B8] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-[#3E8B82]/20 hover:shadow-[#3E8B82]/40"
+              >
+                {isSubmitting ? 'Sending...' : 'Send Message'}
+              </button>
+
+              <p className="text-center font-mono text-xs text-slate-500">
+                Under NDA by default. Nothing you send is published.
+              </p>
+            </div>
           </div>
-
-          {/* Email field */}
-          <div>
-            <label htmlFor="email" className="block text-sm font-medium text-slate-300 mb-2">
-              Email *
-            </label>
-            <input
-              {...register('email')}
-              type="email"
-              id="email"
-              className="w-full px-4 py-3 rounded-lg bg-slate-800/50 border border-slate-700 text-slate-100 placeholder-slate-500 focus:outline-none focus:border-[#3E8B82] focus:ring-1 focus:ring-[#3E8B82] transition-colors"
-              placeholder="your.email@example.com"
-            />
-            {errors.email && (
-              <p className="mt-1 text-sm text-red-400">{errors.email.message}</p>
-            )}
-          </div>
-
-          {/* Project type field */}
-          <div>
-            <label htmlFor="projectType" className="block text-sm font-medium text-slate-300 mb-2">
-              Project Type *
-            </label>
-            <select
-              {...register('projectType')}
-              id="projectType"
-              className="w-full px-4 py-3 rounded-lg bg-slate-800/50 border border-slate-700 text-slate-100 focus:outline-none focus:border-[#3E8B82] focus:ring-1 focus:ring-[#3E8B82] transition-colors"
-            >
-              <option value="">Select a project type</option>
-              {projectTypes.map((type) => (
-                <option key={type} value={type}>
-                  {type}
-                </option>
-              ))}
-            </select>
-            {errors.projectType && (
-              <p className="mt-1 text-sm text-red-400">{errors.projectType.message}</p>
-            )}
-          </div>
-
-          {/* Message field */}
-          <div>
-            <label htmlFor="message" className="block text-sm font-medium text-slate-300 mb-2">
-              Message *
-            </label>
-            <textarea
-              {...register('message')}
-              id="message"
-              rows={6}
-              className="w-full px-4 py-3 rounded-lg bg-slate-800/50 border border-slate-700 text-slate-100 placeholder-slate-500 focus:outline-none focus:border-[#3E8B82] focus:ring-1 focus:ring-[#3E8B82] transition-colors resize-none"
-              placeholder="Tell us what you are building — rough is fine..."
-            />
-            {errors.message && (
-              <p className="mt-1 text-sm text-red-400">{errors.message.message}</p>
-            )}
-          </div>
-
-          {/* Submit button */}
-          <button
-            type="submit"
-            disabled={isSubmitting}
-            className="w-full py-3 px-6 rounded-lg bg-gradient-to-r from-[#3E8B82] to-[#5FA89D] text-white font-semibold hover:from-[#5FA89D] hover:to-[#7FC5B8] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-[#3E8B82]/20 hover:shadow-[#3E8B82]/40"
-          >
-            {isSubmitting ? 'Sending...' : 'Send Message'}
-          </button>
-
-          <p className="text-center font-mono text-xs text-slate-500">
-            Under NDA by default. Nothing you send is published.
-          </p>
         </form>
       </div>
     </section>
   );
 }
-
