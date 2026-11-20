@@ -3,25 +3,12 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { z } from 'zod';
 import { trackEvent } from '@/lib/analytics';
-
-const contactSchema = z.object({
-  name: z.string().min(2, 'Name must be at least 2 characters'),
-  email: z.string().email('Please enter a valid email address'),
-  projectType: z.string().min(1, 'Please select a project type'),
-  message: z.string().min(10, 'Message must be at least 10 characters'),
-});
-
-type ContactFormData = z.infer<typeof contactSchema>;
-
-const projectTypes = [
-  'Smart Contract Development',
-  'dApp Development',
-  'Web3 Consulting',
-  'Blockchain Infrastructure',
-  'Other',
-];
+import {
+  contactSchema,
+  projectTypes,
+  type ContactFormData,
+} from '@/lib/contact-schema';
 
 export function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);

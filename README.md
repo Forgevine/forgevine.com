@@ -31,7 +31,10 @@ RESEND_TO_EMAIL=contact@forgevine.com
 ```
 
 `NEXT_PUBLIC_GA_ID` is optional; analytics is only initialized when it is set.
-The contact form requires a Resend API key and a verified sender address.
+
+The contact form posts to `/api/contact`. Submissions are validated on the
+server with the shared schema in `lib/contact-schema.ts` and delivered through
+Resend, so a Resend API key and a verified sender address are required.
 
 ### Running the Development Server
 
